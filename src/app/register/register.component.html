@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <h2 class="text-center my-4">Register</h2>
+      <form >
+        <div class="form-group">
+          <label for="userName">Name</label>
+          <input id="userName" [(ngModel)]="newUser.userName" name="userName" class="form-control" required />
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" [(ngModel)]="newUser.email" name="email" type="email" class="form-control" required />
+        </div>
+        
+        <div class="form-group">
+          <label>Gender</label>
+          <div>
+            <input type="radio" [(ngModel)]="newUser.gender" name="gender" value="0" required /> Male
+            <input type="radio" [(ngModel)]="newUser.gender" name="gender" value="1" required /> Female
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="country">Country</label>
+          <select id="country" [(ngModel)]="newUser.countryId" name="country" class="form-control" (change)="onCountryChange()" required>
+            <option *ngFor="let country of countries" [value]="country.id">{{ country.name }}</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="state">State</label>
+          <select id="state" [(ngModel)]="newUser.stateId" name="state" class="form-control" (change)="onStateChange()" required>
+            <option *ngFor="let state of states" [value]="state.id">{{ state.name }}</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="city">City</label>
+          <select id="city" [(ngModel)]="newUser.cityId" name="city" class="form-control" required>
+            <option *ngFor="let city of cities" [value]="city.id">{{ city.name }}</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input id="password" [(ngModel)]="newUser.password" name="password" type="password" class="form-control" required />
+        </div>
+        
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input id="confirmPassword" [(ngModel)]="newUser.confirmPassword" name="confirmPassword" type="password" class="form-control" required />
+        </div>
+        
+        <div class="form-group">
+          <input type="checkbox" [(ngModel)]="newUser.subscribe" name="subscribe" /> Subscribe
+        </div>
+        
+        <div class="text-center">
+          <button (click)="saveClick()" class="btn btn-primary">Register</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
